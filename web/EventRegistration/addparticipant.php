@@ -4,7 +4,7 @@ session_start ();
 $c = new Controller ();
 try {
 	if (empty ( $_POST ['participant_name'] )) {
-		$_SESSION ["errorParticipantName"] = "asdasdasdasdsa";
+		$_SESSION ["errorParticipantName"] = "Particicant name cannot be empty";
 	} else {
 		$c->createParticipant ( $_POST ['participant_name'] );
 		$_SESSION ["errorParticipantName"] = "";
