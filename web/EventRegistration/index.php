@@ -34,18 +34,20 @@
 		foreach ( $rm->getEvents () as $event ) {
 			echo "<option>" . $event->getName () . "</option>";
 		}
+		
 		echo "</span></p>";
 		
+		echo "<br>";
 		echo "<p><input type='submit' value='Register' /></p>";
 		echo "</form>";
 		
 		?>
-		<form action="addparticipant.php" method="post">
+<form action="addparticipant.php" method="post">
 		<p>
 			Name?<input type="text" name="participant_name" /> <span
 				class="error">
 			<?php
-			if (isset ( $_SESSION ['errorParticipantName'] ) &&  !empty ( $_SESSION ['errorParticipantName'] )) {
+			if (isset ( $_SESSION ['errorParticipantName'] ) && ! empty ( $_SESSION ['errorParticipantName'] )) {
 				echo "*" . $_SESSION ["errorParticipantName"];
 			}
 			?>
@@ -82,7 +84,13 @@
 		</p>
 		<p>
 			End Time? <input type="time" name="endtime"
-				value="<?php echo date('H:i'); ?>" />
+				value="<?php echo date('H:i'); ?>" /> <span class="error">
+			<?php
+			if (isset ( $_SESSION ['errorStartTime'] ) && ! empty ( $_SESSION ['errorStartTime'] )) {
+				echo "*" . $_SESSION ["errorStartTime"];
+			}
+			?>
+			</span>
 		</p>
 
 	</form>
